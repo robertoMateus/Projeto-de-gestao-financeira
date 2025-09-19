@@ -1,4 +1,4 @@
-package com.gestao.controleFinanceiro.Controller;
+package com.gestao.controleFinanceiro.Controller.transacao;
 
 import java.util.List;
 
@@ -13,8 +13,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.gestao.controleFinanceiro.Model.Transacao;
-import com.gestao.controleFinanceiro.Services.TransacaoService;
+import com.gestao.controleFinanceiro.Model.transacao.Transacao;
+import com.gestao.controleFinanceiro.Services.transacao.TransacaoService;
+
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/transacoes")
@@ -36,7 +38,7 @@ public class TransacaoController {
     }
 
      @PostMapping
-    public ResponseEntity<Transacao> postTransacao(@RequestBody Transacao transacao) {
+    public ResponseEntity<Transacao> postTransacao(@Valid @RequestBody Transacao transacao) {
         return ResponseEntity.ok(transacaoService.post(transacao));
     }
 

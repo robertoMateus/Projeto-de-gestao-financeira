@@ -1,15 +1,18 @@
-package com.gestao.controleFinanceiro.Model;
+package com.gestao.controleFinanceiro.Model.transacao;
 
 import java.time.LocalDateTime;
 
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.EntityListeners;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
@@ -24,12 +27,14 @@ public class Transacao {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank(message = "A descrição não pode ser vazia")
     private String descricao;
 
     @NotNull(message = "O valor não pode ser nulo")
     private Double valor;
 
     @CreatedDate
+    @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss", timezone = "America/Recife")
     private LocalDateTime data;
     
     @NotNull(message = "O tipo de transação não pode ser nulo")

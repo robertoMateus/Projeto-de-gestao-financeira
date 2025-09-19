@@ -1,4 +1,4 @@
-package com.gestao.controleFinanceiro.Model;
+package com.gestao.controleFinanceiro.Model.transacao;
 
 import jakarta.persistence.AttributeConverter;
 

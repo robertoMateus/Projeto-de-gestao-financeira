@@ -1,4 +1,4 @@
-package com.gestao.controleFinanceiro.Services;
+package com.gestao.controleFinanceiro.Services.transacao;
 
 import java.util.List;
 import java.util.Optional;
@@ -6,8 +6,10 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.gestao.controleFinanceiro.Model.Transacao;
-import com.gestao.controleFinanceiro.Repository.TransacaoRepository;
+import com.gestao.controleFinanceiro.Model.transacao.Transacao;
+import com.gestao.controleFinanceiro.Repository.transacao.TransacaoRepository;
+
+import jakarta.validation.Valid;
 
 @Service
 public class TransacaoService {
@@ -23,7 +25,7 @@ public class TransacaoService {
         return transacaoRepository.findById(id);
     }
 
-      public Transacao post(Transacao transacao) {
+      public Transacao post(@Valid Transacao transacao) {
         return transacaoRepository.save(transacao);
     }
 
