@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.gestao.controleFinanceiro.Model.usuario.Usuario;
 import com.gestao.controleFinanceiro.Services.UsuarioService;
 import com.gestao.controleFinanceiro.jwt.JwtUtil;
+
+import jakarta.validation.Valid;
+
 import java.util.Map;
 
 @RestController
@@ -22,7 +25,7 @@ public class UsuarioController {
     private JwtUtil jwtUtil;
 
     @PostMapping("/registrar")
-    public ResponseEntity<?> registrar(@RequestBody Usuario usuario) {
+    public ResponseEntity<?> registrar(@Valid @RequestBody Usuario usuario) {
         Usuario novoUsuario = usuarioService.criarUsuario(usuario);
         return ResponseEntity.ok(novoUsuario);
     }

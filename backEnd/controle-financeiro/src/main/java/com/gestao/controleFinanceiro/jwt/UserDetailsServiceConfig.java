@@ -19,7 +19,7 @@ public class UserDetailsServiceConfig {
     }
 
     @Bean
-    public UserDetailsService userDetailsService() {
+    UserDetailsService userDetailsService() {
         return username -> {
             Usuario usuario = usuarioRepository.findByUsuario(username)
                     .orElseThrow(() -> new UsernameNotFoundException("Usuário não encontrado: " + username));
@@ -27,7 +27,7 @@ public class UserDetailsServiceConfig {
             UserDetails userDetails = User.builder()
                     .username(usuario.getUsuario())
                     .password(usuario.getSenha()) // já está criptografada
-                    .roles("USER") // você pode adicionar mais roles se quiser
+                    .roles("USER") // Roles (Tipo de usuário)
                     .build();
 
             return userDetails;

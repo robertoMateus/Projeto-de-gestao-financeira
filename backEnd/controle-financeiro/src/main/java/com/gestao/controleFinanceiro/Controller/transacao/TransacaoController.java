@@ -56,4 +56,10 @@ public class TransacaoController {
         transacaoService.delete(id);
         return ResponseEntity.noContent().build();
     }
+
+     @GetMapping("/saldo")
+    public ResponseEntity<Double> getSaldo() {
+        Double saldo = transacaoService.calcularSaldo();
+        return ResponseEntity.ok(saldo);
+    }
 }

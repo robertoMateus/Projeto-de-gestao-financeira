@@ -19,6 +19,7 @@ public class Usuario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank(message = "Usuário não pode ser vazia")
     @Column(unique = true, nullable = false)
     private String usuario;
 

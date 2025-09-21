@@ -6,12 +6,16 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.gestao.controleFinanceiro.Model.usuario.Usuario;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.EntityListeners;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
@@ -36,7 +40,12 @@ public class Transacao {
     @CreatedDate
     @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss", timezone = "America/Recife")
     private LocalDateTime data;
-    
+
     @NotNull(message = "O tipo de transação não pode ser nulo")
     private TipoTransacaoEnum tipo;
+
+    @ManyToOne
+    @JoinColumn(name = "usuario_id", nullable = false)
+    @JsonIgnore // Evita serialização em JSON, prevenindo loops de referência
+    private Usuario usuario;
 }

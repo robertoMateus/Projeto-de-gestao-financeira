@@ -1,8 +1,8 @@
 package com.gestao.controleFinanceiro.Model.transacao;
 
 public enum TipoTransacaoEnum {
-    RECEITA(1),
-    DESPESA(2);
+    RECEITA(0),
+    DESPESA(1);
 
      private final int code;
      
