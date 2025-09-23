@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.gestao.controleFinanceiro.Model.usuario.Usuario;
-import com.gestao.controleFinanceiro.Services.UsuarioService;
+import com.gestao.controleFinanceiro.Services.usuario.UsuarioService;
 import com.gestao.controleFinanceiro.jwt.JwtUtil;
 
 import jakarta.validation.Valid;

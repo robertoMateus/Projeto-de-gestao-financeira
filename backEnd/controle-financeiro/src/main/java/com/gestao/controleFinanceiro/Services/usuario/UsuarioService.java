@@ -1,4 +1,4 @@
-package com.gestao.controleFinanceiro.Services;
+package com.gestao.controleFinanceiro.Services.usuario;
 
 import java.util.Optional;
 
