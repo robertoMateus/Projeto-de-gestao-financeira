@@ -45,11 +45,13 @@ public class Transacao {
     @NotNull(message = "O tipo de transação não pode ser nulo")
     private TipoTransacaoEnum tipo;
 
+    
     @ManyToOne
     @JoinColumn(name = "usuario_id", nullable = false)
     @JsonIgnore // Evita serialização em JSON, prevenindo loops de referência
     private Usuario usuario;
 
+    @NotNull(message = "A categoria não pode ser nula")
     @ManyToOne
     @JoinColumn(name = "categoria_id", nullable = false)
     private Categoria categoria;

@@ -17,6 +17,8 @@ import com.gestao.controleFinanceiro.Model.transacao.Transacao;
 import com.gestao.controleFinanceiro.Services.transacao.TransacaoService;
 
 import jakarta.validation.Valid;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @RestController
 @RequestMapping("/transacoes")
@@ -62,4 +64,10 @@ public class TransacaoController {
         Double saldo = transacaoService.calcularSaldo();
         return ResponseEntity.ok(saldo);
     }
+
+    @GetMapping("/relatorioMensal")
+    public String getRelatorioMensal(@RequestParam String param) {
+        return new String();
+    }
+    
 }

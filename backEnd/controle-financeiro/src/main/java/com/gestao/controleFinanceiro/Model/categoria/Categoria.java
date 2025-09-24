@@ -16,7 +16,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -30,9 +30,9 @@ public class Categoria {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull(message = "A descrição não pode ser vazia")
+    @NotBlank(message = "A descrição não pode ser vazia")
     private String descricao;
-
+    
     @ManyToOne
     @JoinColumn(name = "usuario_id", nullable = false)
     @JsonIgnore // Evita serialização em JSON, prevenindo loops de referência

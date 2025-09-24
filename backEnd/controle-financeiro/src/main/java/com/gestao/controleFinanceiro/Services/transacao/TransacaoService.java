@@ -4,32 +4,23 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
+import com.gestao.controleFinanceiro.Controller.controladoresGerais.BaseService;
 import com.gestao.controleFinanceiro.Model.transacao.TipoTransacaoEnum;
 import com.gestao.controleFinanceiro.Model.transacao.Transacao;
 import com.gestao.controleFinanceiro.Model.usuario.Usuario;
 import com.gestao.controleFinanceiro.Repository.transacao.TransacaoRepository;
-import com.gestao.controleFinanceiro.Repository.usuario.UsuarioRepository;
 
 import jakarta.validation.Valid;
 
 @Service
-public class TransacaoService {
-
-    @Autowired
-    private UsuarioRepository usuarioRepository; // Injeta o repositório de usuário
+public class TransacaoService extends BaseService{
 
     @Autowired
     private TransacaoRepository transacaoRepository;
     
-    // Método para obter o usuário logado
-    private Usuario getUsuarioLogado() {
-        String username = SecurityContextHolder.getContext().getAuthentication().getName();
-        return usuarioRepository.findByUsuario(username)
-                .orElseThrow(() -> new RuntimeException("Usuário não encontrado."));
-    }
+    
     public List<Transacao> get() {
          return transacaoRepository.findByUsuario(getUsuarioLogado());
     }

@@ -32,9 +32,9 @@ public class Usuario {
     @NotBlank(message = "A senha não pode ser vazia")
     private String senha;
 
+    @NotBlank(message = "O nome não pode ser vazio")
     private String nome;
     
-    @NotBlank(message = "O email não pode ser vazio")
     @Email(message = "Email inválido")
     private String email;
 
