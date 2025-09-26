@@ -1,6 +1,6 @@
 package com.gestao.controleFinanceiro.Model.transacao;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -40,7 +40,7 @@ public class Transacao {
 
     @CreatedDate
     @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss", timezone = "America/Recife")
-    private LocalDateTime data;
+     private LocalDate data;
 
     @NotNull(message = "O tipo de transação não pode ser nulo")
     private TipoTransacaoEnum tipo;
