@@ -1,0 +1,7 @@
+.input{
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* MUITO IMPORTANTE para o padding */
+    
+}

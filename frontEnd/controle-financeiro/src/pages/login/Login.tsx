@@ -1,3 +1,4 @@
+import InputText from "../../Components/InputText/InputText"
 import styles from "./Login.module.css"
 
 const Login = () => {
@@ -5,7 +6,7 @@ const Login = () => {
         <div className={` d-flex justify-content-center align-items-center ${styles.principalLogin}`}>
 
                 <div className={`${styles.form}`}>
-
+                    <InputText label="Usuario"/>
                 </div>
         </div>
     )
