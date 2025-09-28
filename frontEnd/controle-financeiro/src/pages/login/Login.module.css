@@ -7,8 +7,24 @@
 }
 
 .form{
-    background-color: #f9f9f9;
-    padding: 300px;
-    padding-bottom: 250px;
-    margin-right: 35px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 600px;
+  width: 600px;
+  padding: 30px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.9); /* branco translúcido */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  gap: 20px;
+}
+.inputForm{
+    width: 400px;
+} 
+
+.iconeLogin{
+    width: 200px;
+    height: 200px;
+    margin-bottom: 20px;
 }
