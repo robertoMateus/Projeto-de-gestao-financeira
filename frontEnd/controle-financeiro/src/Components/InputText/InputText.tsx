@@ -1,22 +1,22 @@
-import style from './InputText.module.css'
+import styles from "./InputText.module.css"
 
 interface InputTextProps {
-    label?: string
-    obrigatory?: boolean
-    placeholder?: string
+  label?: string;
+  obrigatory?: boolean;
+  placeholder?: string;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  value?: string;
 }
 
-const InputText = ({label, obrigatory, placeholder}:  InputTextProps) => {
+const InputText = ({label, obrigatory, placeholder, onChange, value}: InputTextProps) => {
   return (
-    <div>
-        <div>
-    {label &&( 
-        <label>{label}</label>)}
-        {obrigatory && (<span style={{color: 'red'}}>*</span>)}
-        </div>
-
-        <input className={style.input} type="text" placeholder={placeholder}/>
-   </div>
+    <div className={styles.container}>
+      <div className={styles.labelContainer}>
+        {label && <label>{label}</label>}
+        {obrigatory && <span className={styles.obrigatory}>*</span>}
+      </div>
+      <input className={styles.input} type="text" placeholder={placeholder} onChange={onChange} value={value}/>
+    </div>
   )
 }
 

@@ -13,12 +13,28 @@
   margin-left: 4px;
 }
 
+.inputWrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
+}
+
 .input {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 6px;
   box-sizing: border-box;
-  width: 100%;   /* 🔥 garante que fique igual ao de senha */
+  width: 100%;
   font-size: 14px;
   outline: none;
+}
+
+.toggleButton {
+  position: absolute;
+  right: 10px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
 }

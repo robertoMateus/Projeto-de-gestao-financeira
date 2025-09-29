@@ -1,0 +1,46 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(255,255,255,0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.loaderContainer {
+  background: #eaf6f6;
+  padding: 1.8rem;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.18);
+}
+
+/* aqui estilizamos o wrapper; o svg do react-icons usa currentColor,
+   então ele herda a cor definida abaixo */
+.iconWrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #28a745; /* seu verde do botão */
+  animation: spin 1s linear infinite;
+}
+
+/* garante o tamanho exato do svg (opcional) */
+.iconWrapper svg {
+  width: 50px;
+  height: 50px;
+}
+
+.text {
+  margin-top: 0.9rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #222;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
